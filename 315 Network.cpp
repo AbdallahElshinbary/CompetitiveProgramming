@@ -8,7 +8,7 @@ bitset<105> vertices;
 
 void AP(int u) {
 	num[u] = low[u] = ++cnt;
-	vis[u] = true;
+	vis[u] = true; 
 	for(int v : AdjList[u]) {
 		if(!vis[v]) {
 			parent[v] = u;

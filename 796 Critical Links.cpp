@@ -10,7 +10,7 @@ void AP(int u) {
 	num[u] = low[u] = ++cnt;
 	vis[u] = true;
 	for(int v : AdjList[u]) {
-		if(!vis[v]) {
+		if(!vis[v]) { 
 			parent[v] = u;
 			AP(v);
 			if(low[v] > num[u])
