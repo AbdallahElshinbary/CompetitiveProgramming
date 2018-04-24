@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+map<int, int> mp;
+
+int div(int n) {
+	int x = 0, i;
+	for(i=1; i*i<n; i++)
+		if(n%i == 0)
+			x += 2;
+	if(i*i == n)
+		x++;
+	return x;
+}
+
+void gen(int l, int r) {
+	for(int i=l; i<=r; i++)
+		mp[i] = div(i);
+}
+
+int main()
+{
+	int n, l, r;
+	cin >> n;
+	while(n--) {
+		int mx = -1, ans;	     
+		cin >> l >> r;
+		gen(l,r);
+		for(auto it : mp) {
+			if(it.second > mx) {
+				ans = it.first;
+				mx = it.second;
+			}
+		}
+		printf("Between %d and %d, %d has a maximum of %d divisors.\n", l, r, ans, mx);
+		mp.clear();
+	}
+
+
+	return 0;
+}
+
+
+
